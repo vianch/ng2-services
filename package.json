@@ -1,0 +1,48 @@
+{
+  "name": "ng2-services",
+  "version": "0.0.1",
+  "description": "ng2-services demo",
+  "main": "index.js",
+ "scripts": {
+    "start": "webpack",
+    "test": "karma start",
+    "webpack-dev": "webpack --config webpack.config.js --colors --hide-modules --watch",
+    "webpack-stats": "webpack --config webpack.config.js --colors --progress --json > stats.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vianch/ng2-services.git"
+  },
+  "keywords": [
+    "angular2",
+    "ng2",
+    "services"
+  ],
+  "author": "VIANCH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vianch/ng2-services/issues"
+  },
+  "homepage": "https://github.com/vianch/ng2-services#readme",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.0",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.34.0",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.0",
+    "zone.js": "^0.5.10"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "css-loader": "^0.23.0",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.7.2",
+    "tslint-loader": "^2.1.0",
+    "typescript": "^1.7.5",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.9"
+  }
+}
