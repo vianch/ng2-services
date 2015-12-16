@@ -44,3 +44,9 @@ npm install
 ```
 
 ## NPM tasks
+
+There are two webpack tasks; `start` and `npm run webpack-dev`.
+
+`start` is the default task which will compile all files with webpack plus minified
+`webpack-dev` is the same but with watcher and no minified
+`clean` remove files from dist/js folder

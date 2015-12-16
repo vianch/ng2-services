@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "ng2-services demo",
   "main": "index.js",
- "scripts": {
-    "start": "webpack",
+  "scripts": {
+    "start": "webpack -p",
+    "clean": "rm -rf dist/js",
     "test": "karma start",
     "webpack-dev": "webpack --config webpack.config.js --colors --hide-modules --watch",
     "webpack-stats": "webpack --config webpack.config.js --colors --progress --json > stats.json"
@@ -40,6 +41,7 @@
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "ts-loader": "^0.7.2",
+    "tslint": "^3.2.0",
     "tslint-loader": "^2.1.0",
     "typescript": "^1.7.5",
     "url-loader": "^0.5.7",

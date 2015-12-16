@@ -4,25 +4,25 @@ var webpack = require('webpack');
 module.exports = {
     context: __dirname,
     entry: {
-        homepage: "./app/modules/index",
+        services: "./app/components/index",
         angular2: [
             // Angular 2 Deps
             'zone.js',
             'reflect-metadata',
             // to ensure these modules are grouped together in one file
-            'angular2/angular2',
             'angular2/core',
             'angular2/router',
             'angular2/http',
-            'lodash'
+            'angular2/platform/browser'
         ]
+    },
+    output: {
+        path: path.resolve('dist/js'),
+        publicPath: '/dist/js',
+        filename: "[name]-bundle.js"
     },
 
     plugins: [
-        new webpack.ProvidePlugin({
-            "_": "lodash"
-        }),
-        new webpack.ContextReplacementPlugin(/buffer/, require('buffer'))
 
     ],
 
