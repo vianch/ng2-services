@@ -13,7 +13,8 @@
        "outDir": "dist/js"
   },
    "files": [
-    	"typings/tsd.d.ts"
+    	"typings/tsd.d.ts",
+       "app/contracts/ng2-service.d.ts"
    ],
    "exclude": "node_modules"
 }

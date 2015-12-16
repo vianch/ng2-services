@@ -1,0 +1,1 @@
+/// <reference path="idata.service.d.ts" />

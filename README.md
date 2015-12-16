@@ -8,6 +8,7 @@ Angular2 services examples for your projects made with [Webpack](https://webpack
 * Webpack config file with all basic needs
 * Component based file and folder structure
 * A Sass library of commonly used mixins
+* TSLINT json file 
 * Included libraries:
     * [ts-loader](https://www.npmjs.com/package/ts-loader) 
     * [sass-loader](https://www.npmjs.com/package/sass-loader) 

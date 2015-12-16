@@ -6,14 +6,17 @@ module.exports = {
     entry: {
         services: "./app/components/index",
         angular2: [
-            // Angular 2 Deps
-            'zone.js',
+
             'reflect-metadata',
+            "es6-shim",
+            "rxjs",
+
             // to ensure these modules are grouped together in one file
             'angular2/core',
             'angular2/router',
             'angular2/http',
-            'angular2/platform/browser'
+            'angular2/platform/browser',
+
         ]
     },
     output: {
@@ -25,10 +28,6 @@ module.exports = {
     plugins: [
 
     ],
-
-    devServer: {
-        contentBase: 'wwwroot'
-    },
 
     module: {
         preLoaders: [
