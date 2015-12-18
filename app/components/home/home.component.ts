@@ -1,17 +1,22 @@
 import {Component} from "angular2/core";
 import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
-import DashboardComponent from "../dashboard/dashboard.component";
+import {Http, HTTP_PROVIDERS} from "angular2/http";
+import {DashboardComponent} from "../dashboard/dashboard.component";
+import DataService from "../core/services/data.service";
 
 @Component({
-	selector: "app",
+	selector: "my-app",
 	template: require("./home.component.html"),
-	directives: [ROUTER_DIRECTIVES]
+	directives: [ROUTER_DIRECTIVES],
+	providers: [DataService, Http, HTTP_PROVIDERS]
 })
 
-@RouteConfig([
-  {path: "/dashboard", name: "Dashboard", component: DashboardComponent, useAsDefault: true},
-])
+	@RouteConfig([
+		{ path: "/", name: "Dashboard", component: DashboardComponent, useAsDefault: true },
+		{ path: "/heroes", name: "Heroes", component: DashboardComponent },
+	])
 
-export default class HomeComponent {
-	public title = "NG2-SERVICES Example";
+export class AppComponent {
+	public title = "Tour of Heroes";
 }
+

@@ -1,13 +1,19 @@
-import {Component, OnInit} from "angular2/core";
+import {Component, OnInit } from "angular2/core";
+import {Router} from "angular2/router";
+import {DashboardService} from "./dashboard.service";
 
 @Component({
-	selector: "dashboard"
+	selector: "my-dashboard",
+	templateUrl: "app/components/dashboard/dashboard.component.html",
+	providers: [DashboardService]
 })
+export class DashboardComponent implements OnInit {
+	public heroes: Hero[] = [];
+	constructor(private _dashboardService: DashboardService, private _router: Router) { }
 
-export default class DashboardComponent implements IDashboard {
-	public dashboardHelloMessage: string = "";
 
 	ngOnInit() {
-		this.dashboardHelloMessage = "Dashboard initialized!!!";
-	}
+		this._dashboardService.getHeroes();
+	}	
+
 }

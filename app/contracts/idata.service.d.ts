@@ -1,3 +1,3 @@
 interface IDataService {
-	getData: (restUrl?: string) => any
+	getData(restUrl?: string): any;
 }

@@ -1,28 +1,20 @@
 var path = require('path');
 var webpack = require('webpack');
+// Webpack Plugins
+var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 module.exports = {
     context: __dirname,
     entry: {
-        services: "./app/components/index",
-        angular2: [
-
-            'reflect-metadata',
-            "es6-shim",
-            "rxjs",
-
-            // to ensure these modules are grouped together in one file
-            'angular2/core',
-            'angular2/router',
-            'angular2/http',
-            'angular2/platform/browser',
-
-        ]
+        app: "./app/components/boot",
+        vendor: "./app/components/vendors"
     },
     output: {
         path: path.resolve('dist/js'),
         publicPath: '/dist/js',
-        filename: "[name]-bundle.js"
+        filename: "[name]-bundle.js",
+        sourceMapFilename: '[name]-bundle.map',
+        chunkFilename: '[id].chunk.js'
     },
 
     plugins: [
@@ -63,12 +55,25 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "file"
             }
-        ]
+        ],
+        noParse: [ /.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/ ]
+    },
+
+    plugins: [
+        new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor-bundle.js', minChunks: Infinity }),
+        new CommonsChunkPlugin({ name: 'common', filename: 'common-bundle.js', minChunks: 2, chunks: ['app', 'vendor'] })
+         // include uglify in production
+    ],
+
+    // Other module loader config
+    tslint: {
+      emitErrors: false,
+      failOnHint: false
     },
     
   resolve: {
     extensions: ['','.ts','.js'],
-    root: path.join(__dirname, 'wwwroot/assets/') //public
+    root: path.join(__dirname, 'dist/js/') //public
   }
 
 };

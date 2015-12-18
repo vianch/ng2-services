@@ -1,3 +1,0 @@
-interface IDashboard extends OnInit {
-    
-}
