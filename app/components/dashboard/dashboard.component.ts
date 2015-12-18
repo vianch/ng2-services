@@ -13,7 +13,10 @@ export class DashboardComponent implements OnInit {
 
 
 	ngOnInit() {
-		this._dashboardService.getHeroes();
+		this._dashboardService.getHeroes().subscribe(res => {
+			this.heroes = res.json();
+			console.log(this.heroes);
+		});
 	}	
 
 }

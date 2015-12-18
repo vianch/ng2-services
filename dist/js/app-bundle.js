@@ -76,7 +76,11 @@ webpackJsonp([0],{
 	        this.heroes = [];
 	    }
 	    DashboardComponent.prototype.ngOnInit = function () {
-	        this._dashboardService.getHeroes();
+	        var _this = this;
+	        this._dashboardService.getHeroes().subscribe(function (res) {
+	            _this.heroes = res.json();
+	            console.log(_this.heroes);
+	        });
 	    };
 	    DashboardComponent = __decorate([
 	        core_1.Component({
@@ -112,7 +116,7 @@ webpackJsonp([0],{
 	        this._dataService = _dataService;
 	    }
 	    DashboardService.prototype.getHeroes = function () {
-	        this._dataService.getData("services/dashboard.json");
+	        return this._dataService.getData("services/dashboard.json");
 	    };
 	    DashboardService = __decorate([
 	        core_1.Injectable(), 
@@ -144,12 +148,7 @@ webpackJsonp([0],{
 	        this._http = _http;
 	    }
 	    DataService.prototype.getData = function (restUrl) {
-	        var _this = this;
-	        console.log(restUrl);
-	        this._http.get(restUrl).subscribe(function (res) {
-	            _this.people = res.json();
-	            console.log(res);
-	        });
+	        return this._http.get(restUrl);
 	    };
 	    DataService = __decorate([
 	        core_1.Component({}),
